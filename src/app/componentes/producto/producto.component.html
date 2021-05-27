@@ -1,0 +1,13 @@
+<ion-card style="position: relative">
+  <ion-img class="img-producto" [src]="producto.foto"></ion-img>
+  <ion-item lines="full">
+    <h3 class="ion-text-center">{{producto.nombre}}</h3>
+  </ion-item>
+  <p class="tachado">Precio normal: $ {{producto.precioNormal}}</p>
+  <p class="precio">Precio reducido: $ {{producto.precioReducido}}</p>
+  <ion-icon (click)="addCarrito()" class="icon-producto" name="logo-usd"></ion-icon>
+  <p class="normal comentarios" (click)="openModal()">Comentarios
+    <ion-icon class="icon" name="chatbubble-ellipses-outline"></ion-icon>
+  </p>
+</ion-card>
+

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">WINGS</string>
+    <string name="title_activity_main">WINGS</string>
+    <string name="package_name">com.piacode.wings</string>
+    <string name="custom_url_scheme">com.piacode.wings</string>
+</resources>

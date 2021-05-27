@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="subtitulo ion-text-wrap">
+      Perfil del usuario
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!uid.length">
+    <h1 class="ion-text-center">Ingrese sus datos para pedidos</h1>
+    <ion-item>
+      <ion-label class="normal" position="floating">Email</ion-label>
+      <ion-input name="email" [(ngModel)]="cliente.email" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!ingresarEnable">
+      <ion-label class="normal" position="floating">Nombre completo:</ion-label>
+      <ion-input [(ngModel)]="cliente.nombre" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">Celular:</ion-label>
+      <ion-input [(ngModel)]="cliente.celular" class="normal" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="!ingresarEnable">
+      <ion-label class="normal" position="floating">Referencia de la ubicación</ion-label>
+      <ion-input [(ngModel)]="cliente.referencia" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+
+  <div calign="left"> 
+    <ion-item *ngIf="!ingresarEnable">
+      <ion-label class="normal">Foto de referencia:</ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="folder"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+      <ion-label *ngIf="!ingresarEnable">
+        <img *ngFor="let photo of photos" [src]="photos">
+          <ion-button (click)="takePicture()">
+            <ion-icon slot="icon-only" name="camera"></ion-icon>
+          </ion-button>
+        </ion-label>
+    </ion-item>
+    </div>  
+    
+    <ion-item *ngIf="!ingresarEnable">
+      <img class="image" [src]="cliente.foto">
+    </ion-item>
+
+    
+
+    <div style="text-align: end; margin: 10px;">
+      <ion-button *ngIf="!ingresarEnable" (click)="registrarse()" class="normal" color="dark">Registrarse</ion-button>
+      <ion-button *ngIf="!ingresarEnable" (click)="ingresarEnable = true" class="normal" color="dark">Iniciar Sesion
+      </ion-button>
+      <ion-button *ngIf="ingresarEnable" (click)="ingresar()" class="normal" color="dark">Iniciar Sesion</ion-button>
+      <ion-button *ngIf="ingresarEnable" (click)="ingresarEnable = false" class="normal" color="dark">Registrarse
+      </ion-button>
+    </div>
+  </div>
+
+  <div *ngIf="uid.length">
+    <h1 class="ion-text-center">Sus datos actuales son:</h1>
+    <ion-item>
+      <ion-label class="normal">
+        Email: {{cliente.email}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal">
+        Celular: {{cliente.celular}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Nombre completo:
+      </ion-label>
+      <ion-input [(ngModel)]="cliente.nombre" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+
+    <ion-item (click)="addDirection()">
+      <ion-label class="normal">
+        Ubicación
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Referencia de la ubicación
+      </ion-label>
+      <ion-input [(ngModel)]="cliente.referencia" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+
+<div calign="left">
+    <ion-item>
+      <ion-label class="normal">
+        Foto de referencia:
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="folder"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+      <ion-label>
+        <img *ngFor="let photo of photos" [src]="photos">
+          <ion-button (click)="takePicture()">
+            <ion-icon slot="icon-only" name="camera"></ion-icon>
+          </ion-button>
+        </ion-label>
+    </ion-item>
+    </div>  
+    <ion-item>
+      <img class="image" [src]="cliente.foto">
+    </ion-item>
+
+    <div style="text-align: end; margin: 10px;" class="centrado">
+      <ion-button expand="block"  color="dark" fill="clear" (click)="guardarUser()" class="normal">Guardar</ion-button>
+    </div>
+    <div style="text-align: end; margin: 10px;"class="centrado">
+      <ion-button expand="block"  color="dark" fill="clear" (click)="salir()" class="normal">Salir</ion-button>
+    </div>
+  </div>
+</ion-content>

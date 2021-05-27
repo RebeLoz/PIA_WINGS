@@ -1,0 +1,71 @@
+<ion-app>
+
+  <ion-split-pane contentId="main">
+    <!--  the side menu  -->
+    <ion-menu contentId="main" menuId="principal">
+      <ion-header>
+        <ion-toolbar color="dark">
+          <h1 class="ion-text-center">Menú</h1>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/']">
+            <ion-label class="normal">Productos</ion-label>
+            <ion-icon slot="start" name="restaurant"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/perfil']">
+            <ion-label class="normal">Perfil</ion-label>
+            <ion-icon slot="start" name="person"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/carrito']">
+            <ion-label class="normal">Carrito de compras</ion-label>
+            <ion-icon slot="start" name="basket"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide=false *ngIf="admin">
+          <ion-item button=true detail=true [routerLink]="['/set-productos']">
+            <ion-label class="normal">Configuración de productos</ion-label>
+            <ion-icon slot="start" name="create-sharp"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide=false *ngIf="!admin">
+          <ion-item button=true detail=true [routerLink]="['/mis-pedidos']">
+            <ion-label class="normal">Mi pedido</ion-label>
+            <ion-icon slot="start" name="bookmark"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide=false *ngIf="admin">
+          <ion-item button=true detail=true [routerLink]="['/pedidos']">
+            <ion-label class="normal">Pedidos</ion-label>
+            <ion-icon slot="start" name="bookmark"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle autoHide=false *ngIf="admin">
+          <ion-item button=true detail=true [routerLink]="['/pedidos']">
+            <ion-label class="normal">Pedidos</ion-label>
+            <ion-icon slot="start" name="bookmark"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>  
+        <ion-menu-toggle autoHide=false>
+          <ion-item button=true detail=true [routerLink]="['/sugerencias']">
+            <ion-label class="normal">Sugerencias</ion-label>
+            <ion-icon slot="start" name="chatbubbles"></ion-icon>
+          </ion-item>
+        </ion-menu-toggle>      
+ 
+        <ion-item (click)="onLogout()">
+          <ion-icon name="exit-outline" slot="start"></ion-icon>
+          <ion-label class="normal">Salir</ion-label>
+        </ion-item>
+      </ion-content>
+    </ion-menu>
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+  
+</ion-app>

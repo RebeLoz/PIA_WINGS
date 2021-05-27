@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Recomiendanos platillos!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list lines="full">
+      <form [formGroup]="mainForm" (ngSubmit)="storeData()">
+        <ion-item>
+          <ion-label position="floating">Nombre de usuario</ion-label>
+          <ion-input formControlName="usuario" type="text" required></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Nombre del platillo</ion-label>
+          <ion-input formControlName="platillo" type="text" required>
+          </ion-input>
+        </ion-item>
+  
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="primary" shape="full" expand="block">
+              Añadir platillo
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-list>
+  
+      <ion-list>
+      <ion-list-header>
+        Platillos sugeridos:
+      </ion-list-header>
+  
+      <ion-item lines="inset" *ngFor="let data of Data">
+        <ion-label>
+          <h5>{{data.usuario_nombre}}</h5>
+          <p>{{data.platillo_nombre}}</p>
+        </ion-label>
+  
+        <div class="item-note" item-end>
+          <ion-icon name="create" style="zoom:2.0" [routerLink]="['/platillo/', data.id]"></ion-icon>        
+          <ion-icon name="trash" style="zoom:2.0" (click)="deletePlatillo(data.id)"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  

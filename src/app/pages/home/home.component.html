@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <h1 class="subtitulo ion-text-wrap">
+      WINGS
+    </h1>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="primary" slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let producto of productos">
+    <app-producto [producto]=producto></app-producto>
+  </div>
+</ion-content>
