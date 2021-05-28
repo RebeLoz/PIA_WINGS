@@ -4,8 +4,11 @@ PIA Aplicaciones moviles
 
 #Equipo
 **Rebecca Lozano Loredo 1869475**
+
 **Jaziel Alejandro Carmona Martínez 1917435**
+
 **José Alfredo Pérez Flores 1919306**
+
 **Brayan Uriel Sánchez Soto 1906405**
 
 **WINGS**
