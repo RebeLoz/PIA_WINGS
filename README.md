@@ -2,7 +2,7 @@
 PIA Aplicaciones moviles
 
 
-Equipo
+#Equipo
 **Rebecca Lozano Loredo 1869475**
 **Jaziel Alejandro Carmona Martínez 1917435**
 **José Alfredo Pérez Flores 1919306**
