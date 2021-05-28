@@ -19,7 +19,12 @@ La aplicación consiste en que el cliente puede pedir comida a cualquier domicil
 
 
 **Proyecto de Ionic-Angular*
+
 Para usarlo:
-*Node Js**
+
+**Node Js**
+
 **Visual Studio Code**
+
 **Android Studio**
+
